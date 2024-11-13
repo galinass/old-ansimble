@@ -1,0 +1,7 @@
+wordpress_image: "wordpress:latest"           # Образ за WordPress
+wordpress_container_name: "wordpress"         # Име на контейнера за WordPress
+wordpress_db_name: "wordpress"                # Име на базата данни за WordPress
+wordpress_db_user: "wp_user"                  # Потребител за достъп до базата данни
+wordpress_db_password: "wp_password"          # Парола за достъп до базата данни
+wordpress_db_host: "mysql"                    # Хост за базата данни (контейнерът с MySQL)
+wordpress_port: "8080"                        # Порт на хоста, на който ще бъде достъпен WordPress

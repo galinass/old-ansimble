@@ -1,0 +1,10 @@
+---
+- name: Backup WordPress files and database
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Backup WordPress files
+      command: tar czf /path/to/backup/wp_files_backup.tar.gz /path/to/wordpress/files
+
+    - name: Backup MySQL database
+      command: docker exec mysql_container /usr/bin/mysqldump -u root --password="{{ mysql_root_password }}" "{{ mysql_db_name }}" > /path/to/backup/db_backup.sql

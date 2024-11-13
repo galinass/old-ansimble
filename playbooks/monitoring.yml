@@ -1,0 +1,7 @@
+---
+- name: Set up Prometheus and Grafana for monitoring
+  hosts: localhost
+  become: yes
+  roles:
+    - prometheus_install
+    - grafana_install

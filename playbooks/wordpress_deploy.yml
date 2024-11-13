@@ -1,0 +1,6 @@
+---
+- name: Deploy or update WordPress on Docker
+  hosts: localhost
+  become: yes
+  roles:
+    - wordpress_install

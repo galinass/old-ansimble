@@ -1,0 +1,12 @@
+---
+- name: Deploy Prometheus container
+  community.docker.docker_container:
+    name: prometheus
+    image: prom/prometheus:latest
+    state: started
+    restart_policy: always
+    ports:
+      - "{{ prometheus_port }}:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+  tags: monitoring

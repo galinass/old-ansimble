@@ -1,0 +1,22 @@
+# Global variables for all roles
+
+# WordPress
+wordpress_db_name: wordpress_db
+wordpress_db_user: wp_user
+wordpress_db_password: secure_password
+wordpress_site_url: https://oldcatholic.bg
+
+# MySQL
+mysql_root_password: root_password
+mysql_db_name: "{{ wordpress_db_name }}"
+mysql_user: "{{ wordpress_db_user }}"
+mysql_password: "{{ wordpress_db_password }}"
+
+# Docker
+docker_compose_version: "latest"
+
+# Prometheus and Grafana
+prometheus_port: 9090
+grafana_port: 3000
+grafana_admin_user: admin
+grafana_admin_password: admin_password

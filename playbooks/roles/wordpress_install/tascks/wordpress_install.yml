@@ -1,0 +1,17 @@
+---
+- name: Deploy WordPress container
+  community.docker.docker_container:
+    name: wordpress_container
+    image: wordpress:latest
+    state: started
+    restart_policy: always
+    links:
+      - mysql_container
+    env:
+      WORDPRESS_DB_HOST: mysql_container:3306
+      WORDPRESS_DB_NAME: "{{ wordpress_db_name }}"
+      WORDPRESS_DB_USER: "{{ wordpress_db_user }}"
+      WORDPRESS_DB_PASSWORD: "{{ wordpress_db_password }}"
+    ports:
+      - "8080:80"
+  tags: install

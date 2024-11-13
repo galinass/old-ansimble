@@ -1,0 +1,20 @@
+- name: Complete setup for oldcatholic.bg website
+  hosts: localhost
+  become: yes
+  roles:
+    - role: docker_install
+    - role: mysql_install
+    - role: wordpress_install
+    - role: prometheus_install
+    - role: grafana_install
+    - role: nginx_proxy
+  vars_files:
+    - ~/old-ansimble/playbooks/roles/grafana_install/vars/grafana.yml
+    - ~/old-ansimble/playbooks/roles/mysql_install/vars/mysql.yml
+    - ~/old-ansimble/playbooks/roles/wordpress_install/vars/wordpress.yml
+    - ~/old-ansimble/playbooks/roles/prometheus_install/vars/prometheus.yml
+    - ~/old-ansimble/playbooks/roles/nginx_proxy/vars/nginx.yml
+    - ~/old-ansimble/playbooks/roles/docker_install/vars/docker_instal.yml
+
+
+
