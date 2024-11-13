@@ -1,0 +1,7 @@
+# ~/old-ansimble/playbooks/roles/docker_exporter_install/vars/main.yml
+docker_exporter_image: "quay.io/prometheus/node-exporter:latest"
+docker_exporter_container_name: "node_exporter"
+docker_exporter_port: "9323"
+
+
+

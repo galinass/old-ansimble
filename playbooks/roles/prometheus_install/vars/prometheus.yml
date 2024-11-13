@@ -3,3 +3,14 @@ prometheus_container_name: "prometheus"
 prometheus_port: "9090"               # Порт за Prometheus вътре в контейнера
 prometheus_host_port: "9090"           # Порт на хоста, на който ще бъде достъпен Prometheus
 prometheus_config_file: "/etc/prometheus/prometheus.yml"  # Път до конфигурационния файл в контейнера
+global:
+  scrape_interval: 15s  # Настройка за интервала на събиране на метрики
+
+scrape_configs:
+  - job_name: 'prometheus'  # Задаване на основен job за Prometheus
+    static_configs:
+      - targets: ['localhost:9090']  # Самият Prometheus
+
+  - job_name: 'docker'  # Задаване на job за Docker контейнерите
+    static_configs:
+      - targets: ['localhost:9323']  # Примерен порт за Docker контейнер

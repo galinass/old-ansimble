@@ -1,7 +1,8 @@
 ---
-- name: Set up Prometheus and Grafana for monitoring
+- name: Set up Prometheus, Grafana and Docker Exporter for monitoring
   hosts: localhost
   become: yes
   roles:
     - prometheus_install
     - grafana_install
+    - docker_exporter_install  # Добавяне на новата роля за Docker Exporter

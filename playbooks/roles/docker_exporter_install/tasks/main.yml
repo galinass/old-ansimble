@@ -1,0 +1,20 @@
+- name: Pull Docker Exporter image
+  community.docker.docker_image:
+    name: "{{ docker_exporter_image }}"
+    source: pull
+
+- name: Run Docker Exporter container
+  community.docker.docker_container:
+    name: "{{ docker_exporter_container_name }}"
+    image: "{{ docker_exporter_image }}"
+    state: started
+    published_ports:
+      - "{{ docker_exporter_port }}:{{ docker_exporter_port }}"
+    env:
+      DOCKER_API_VERSION: "1.41"  # Примерно, ако е нужно
+    restart_policy: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock  # За достъп до Docker API
+  tags:
+    - monitoring
+
