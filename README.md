@@ -26,4 +26,6 @@ If you need to start Docker containers manually for testing or development purpo
 docker-compose up -d
 This will start all the necessary services as containers.
 - ansible-playbook -i ~/old-ansimble/inventory/hosts.yml playbooks/site.yml --ask-become-pass
+- Password: galinas
 This command runs the Ansible playbook site.yml located in the playbooks directory, using the inventory file hosts.yml from the inventory directory. The --ask-become-pass flag prompts for the sudo password to gain elevated privileges during the execution of the play
+
